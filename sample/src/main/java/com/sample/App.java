@@ -14,10 +14,8 @@ public class App extends Application {
  
     @Override
     public void start(Stage stage) throws Exception {
-        Label label = new Label("入力された文字:");
-        TextField textField = new TextField();
-        Button OkButton = new Button("OK");
-        Button NgButton = new Button("NG");
+        final Label label = new Label("入力された文字:");
+        final TextField textField = new TextField();
         // //buttonクリック時のアクション
         // OkButton.setOnAction(new EventHandler<ActionEvent>() {
         //     @Override
@@ -26,26 +24,16 @@ public class App extends Application {
         //         label.setText(typed_msg);
         //     }
         // });
-		// button2 = new Buttom("NG");
-        //buttonクリック時のアクション
-        // button2.setOnAction(new EventHandler<ActionEvent>() {
-        //     @Override
-        //     public void handle(ActionEvent e) {
-        //         String typed_msg = "NG入力された文字:" + textField.getText();
-        //         label.setText(typed_msg);
-        //     }
-        //});
- 
 
-        // BorderPane borderPane = new BorderPane();
-        // borderPane.setTop(textField);
-        // borderPane.setCenter(label);
-        // borderPane.setBottom(OkButton);
-        // borderPane.setLeft(NgButton);
 		AnchorPane pane = new AnchorPane();
+		pane.getChildren().addAll(textField, label);
+		pane.setTopAnchor(textField, 10.);
+		pane.setLeftAnchor(textField, 10.);
+		pane.setTopAnchor(label, 50.);
+		pane.setLeftAnchor(label, 10.);
 		int num = 0;
-		MyButton button1 = new MyButton(pane, "button" + String.valueOf(num++), 10., 10.);
-		MyButton button2 = new MyButton(pane, "button" + String.valueOf(num++), 20., 20.);
+		MyButton button1 = new MyButton(pane, "button" + String.valueOf(num++), 100., 10.);
+		button1.SetEvent();
         Scene scene = new Scene(pane, 500, 500);
         stage.setScene(scene);
         stage.setTitle("アプリケーション");
